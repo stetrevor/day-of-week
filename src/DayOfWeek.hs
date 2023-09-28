@@ -1,4 +1,4 @@
-{-# LANGUAGE NamedFieldPuns #-}
+module DayOfWeek where
 
 import Data.Monoid
 
