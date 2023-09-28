@@ -1,0 +1,13 @@
+cradle:
+  stack:
+    - path: "./src"
+      component: "dayofweek:lib"
+
+    - path: "./app/Main.hs"
+      component: "dayofweek:exe:dayofweek-exe"
+
+    - path: "./app/Paths_dayofweek.hs"
+      component: "dayofweek:exe:dayofweek-exe"
+
+    - path: "./test"
+      component: "dayofweek:test:dayofweek-test"

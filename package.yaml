@@ -27,12 +27,14 @@ ghc-options:
 - -Wcompat
 - -Widentities
 - -Wincomplete-record-updates
-- -Wincomplete-uni-patterns
-- -Wmissing-export-lists
+# - -Wincomplete-uni-patterns
+# - -Wmissing-export-lists
 - -Wmissing-home-modules
 - -Wpartial-fields
 - -Wredundant-constraints
-- -XNamedFieldPuns
+
+default-extensions:
+- NamedFieldPuns
 
 library:
   source-dirs: src
