@@ -21,6 +21,9 @@ description:         Please see the README on GitHub at <https://github.com/stet
 
 dependencies:
 - base >= 4.7 && < 5
+- selective
+- polysemy
+- polysemy-plugin
 
 ghc-options:
 - -Wall
@@ -32,9 +35,24 @@ ghc-options:
 - -Wmissing-home-modules
 - -Wpartial-fields
 - -Wredundant-constraints
+- -O2
+- -flate-specialise
+- -fspecialise-aggressively
+- -fplugin=Polysemy.Plugin
 
 default-extensions:
 - NamedFieldPuns
+- DataKinds
+- FlexibleContexts
+- GADTs
+- LambdaCase
+- PolyKinds
+- RankNTypes
+- ScopedTypeVariables
+- TypeApplications
+- TypeOperators
+- TypeFamilies
+- BlockArguments
 
 library:
   source-dirs: src
@@ -60,3 +78,6 @@ tests:
     - -with-rtsopts=-N
     dependencies:
     - dayofweek
+    - HUnit
+    - QuickCheck
+    - hspec

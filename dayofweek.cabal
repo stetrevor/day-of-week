@@ -26,15 +26,31 @@ source-repository head
 library
   exposed-modules:
       DayOfWeek
+      DemoPolysemy
+      DemoSelective
   other-modules:
       Paths_dayofweek
   hs-source-dirs:
       src
   default-extensions:
       NamedFieldPuns
-  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
+      DataKinds
+      FlexibleContexts
+      GADTs
+      LambdaCase
+      PolyKinds
+      RankNTypes
+      ScopedTypeVariables
+      TypeApplications
+      TypeOperators
+      TypeFamilies
+      BlockArguments
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -O2 -flate-specialise -fspecialise-aggressively -fplugin=Polysemy.Plugin
   build-depends:
       base >=4.7 && <5
+    , polysemy
+    , polysemy-plugin
+    , selective
   default-language: Haskell2010
 
 executable dayofweek-exe
@@ -45,23 +61,55 @@ executable dayofweek-exe
       app
   default-extensions:
       NamedFieldPuns
-  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+      DataKinds
+      FlexibleContexts
+      GADTs
+      LambdaCase
+      PolyKinds
+      RankNTypes
+      ScopedTypeVariables
+      TypeApplications
+      TypeOperators
+      TypeFamilies
+      BlockArguments
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -O2 -flate-specialise -fspecialise-aggressively -fplugin=Polysemy.Plugin -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5
     , dayofweek
+    , polysemy
+    , polysemy-plugin
+    , selective
   default-language: Haskell2010
 
 test-suite dayofweek-test
   type: exitcode-stdio-1.0
   main-is: Spec.hs
   other-modules:
+      DemoPolysemySpec
       Paths_dayofweek
   hs-source-dirs:
       test
   default-extensions:
       NamedFieldPuns
-  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+      DataKinds
+      FlexibleContexts
+      GADTs
+      LambdaCase
+      PolyKinds
+      RankNTypes
+      ScopedTypeVariables
+      TypeApplications
+      TypeOperators
+      TypeFamilies
+      BlockArguments
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -O2 -flate-specialise -fspecialise-aggressively -fplugin=Polysemy.Plugin -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      base >=4.7 && <5
+      HUnit
+    , QuickCheck
+    , base >=4.7 && <5
     , dayofweek
+    , hspec
+    , polysemy
+    , polysemy-plugin
+    , selective
   default-language: Haskell2010
